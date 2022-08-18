@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 
-function ProfileForm() {
-    const [profiles, setProfiles] = useState({
+function ProfileForm({submit}) {
+    const [profile, setProfiles] = useState({
         firstname: "",
         lastname: "",
         email: "",
@@ -19,7 +19,7 @@ function ProfileForm() {
 
 const handleForm = (e) => {
     e.preventDefault();
-    Submit(profile)
+    submit(profile)
 }
 
 
@@ -27,7 +27,7 @@ const handleForm = (e) => {
   return (
       <div className="formcontainer">
           <h3>Profile Form</h3>
-          <form>
+          <form onsubmit={handleForm}>
               <fieldset>
                   <legend>Bio data</legend>
                   <div className="names">
@@ -56,6 +56,9 @@ const handleForm = (e) => {
                       </label>
                   </div>                  
               </fieldset>
+              <button className="form" type="submit">
+                  Add Profile
+              </button>
           </form>
           
       </div>
